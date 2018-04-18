@@ -37,7 +37,7 @@ class OAuth(OAuthConsumerMixin, db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-blueprint.backend = SQLAlchemyBackend(OAuth, db.session, user=current_user, user_required=False)
+blueprint.backend = SQLAlchemyBackend(OAuth, db.session, user=current_user)
 
 @app.route('/')
 def index():
